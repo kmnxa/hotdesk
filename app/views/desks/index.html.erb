@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Reservations</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+          <th scope="col">ID</th>
+            <th scope="col">Start time</th>
+            <th scope="col">End time</th>
+            <th scope="col">Place</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @desks.each do |desk| %>
+            <tr>
+            <td><%= desk.id %></td>
+              <td><%= desk.start_time %></td>
+              <td><%= desk.end_time %></td>
+              <td><%= link_to desk.place, desk %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-12 mt-3">
+      <%= button_to "New reservation", { :action => "new" }, :method => :get, :class => "btn btn-success", class: "btn btn-outline-dark" %>
+    </div>
+  </div>
+</div>
